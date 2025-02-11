@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Manipulación del DOM</title>
+	</head>
+	<body>
+		<h1 id="titulo">Hola, DOM!</h1>
+		<button id="boton">Haz clic</button>
+		<ul id="lista">
+			<li>Elemento 1</li>
+			<li>Elemento 2</li>
+		</ul>
+
+		<script>
+			// 📌 SELECCIÓN DE ELEMENTOS DEL DOM
+
+			// 🔹 Seleccionar un elemento por ID
+			const titulo = document.getElementById('titulo');
+			console.log(titulo.textContent); // "Hola, DOM!"
+
+			// 🔹 Seleccionar elementos por clase
+			// const elementos = document.getElementsByClassName("claseEjemplo");
+
+			// 🔹 Seleccionar elementos por etiqueta
+			const itemsLista = document.getElementsByTagName('li');
+			console.log(itemsLista.length); // 2 (Cantidad de <li> en la lista)
+
+			// 🔹 Seleccionar elementos con querySelector (uno) y querySelectorAll (varios)
+			const boton = document.querySelector('#boton'); // Selecciona el primer botón con ese ID
+			const lista = document.querySelector('#lista'); // Selecciona la lista <ul>
+
+			// ---------------------------------------------------------------
+
+			// 📌 MANIPULACIÓN DEL DOM
+
+			// 🔹 Modificar texto de un elemento
+			titulo.textContent = '¡Bienvenido al DOM!';
+
+			// 🔹 Modificar el contenido HTML de un elemento
+			lista.innerHTML += '<li>Elemento 3</li>'; // Agrega un nuevo <li>
+
+			// 🔹 Crear un nuevo elemento y añadirlo al DOM
+			const nuevoItem = document.createElement('li');
+			nuevoItem.textContent = 'Elemento 4';
+			lista.appendChild(nuevoItem); // Se agrega al final de la lista
+
+			// 🔹 Modificar estilos de un elemento
+			titulo.style.color = 'blue';
+			titulo.style.fontSize = '24px';
+
+			// 🔹 Eliminar un elemento del DOM
+			// lista.removeChild(itemsLista[0]); // Elimina el primer <li>
+
+			// ---------------------------------------------------------------
+
+			// 📌 EVENTOS EN JAVASCRIPT
+
+			// 🔹 Agregar un evento a un botón
+			boton.addEventListener('click', function () {
+				alert('¡Haz hecho clic en el botón!');
+			});
+
+			// 🔹 Evento que cambia el color del título al pasar el mouse
+			titulo.addEventListener('mouseover', () => {
+				titulo.style.color = 'red';
+			});
+
+			titulo.addEventListener('mouseleave', () => {
+				titulo.style.color = 'blue';
+			});
+
+			// 🔹 Evento de teclado
+			document.addEventListener('keydown', function (evento) {
+				console.log(`Tecla presionada: ${evento.key}`);
+			});
+
+			// 🔹 Evento que detecta el cambio de tamaño de la ventana
+			window.addEventListener('resize', function () {
+				console.log(`Ancho: ${window.innerWidth}, Alto: ${window.innerHeight}`);
+			});
+
+			// 🔹 Evento que se ejecuta cuando el DOM está completamente cargado
+			document.addEventListener('DOMContentLoaded', () => {
+				console.log('El DOM ha sido completamente cargado');
+			});
+		</script>
+	</body>
+</html>
