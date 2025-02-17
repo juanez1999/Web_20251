@@ -99,3 +99,73 @@ my-react-app/
 - **`.gitignore`**: Specifies files to be ignored by Git.
 
 This structure ensures a clean, maintainable, and scalable React project. You can further organize your code as your project grows!
+
+### Example of a Component in the `components/` Folder
+
+A simple React component with styles:
+
+#### File: `src/components/Button.jsx`
+```jsx
+import "./Button.css";
+
+const Button = ({ label, onClick }) => {
+  return (
+    <button className="custom-button" onClick={onClick}>
+      {label}
+    </button>
+  );
+};
+
+export default Button;
+```
+
+#### File: `src/components/Button.css`
+```css
+.custom-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+}
+```
+
+---
+
+## JSX: Syntax and Differences with HTML
+
+JSX (JavaScript XML) is a syntax extension for JavaScript that allows writing HTML-like structures within JavaScript code. It is primarily used in React to define UI components.
+
+### JSX Syntax
+JSX enables writing UI components in a more readable and expressive way:
+
+```jsx
+const element = <h1>Hello, World!</h1>;
+```
+
+Although it looks like HTML, JSX is transformed into JavaScript before execution.
+
+### Differences Between JSX and HTML
+| Feature          | JSX Example                          | HTML Example                     |
+|-----------------|--------------------------------|--------------------------------|
+| Class Attribute | `<div className="container">`  | `<div class="container">`      |
+| Self-closing Tags | `<img src="image.jpg" />`     | `<img src="image.jpg">`       |
+| JavaScript Expressions | `<h1>{title}</h1>`  | Not applicable                 |
+| Inline Styles   | `<div style={{ color: 'red' }}>` | `<div style="color: red;">`   |
+| Comments       | `{/* This is a comment */}`     | `<!-- This is a comment -->`  |
+
+### Embedding JavaScript in JSX
+JSX allows embedding JavaScript expressions using `{}`:
+
+```jsx
+const name = "React";
+const element = <h1>Hello, {name}!</h1>;
+```
+
+This makes JSX a powerful tool for building dynamic UIs in React applications.
