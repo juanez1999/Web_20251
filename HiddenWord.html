@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Encuentra la palabra oculta</h1>
+    <p class="wordDisplay"></p>
+    <input type="text" maxlength="1" class="inputBox" />
+    <button onclick="checkLetter()" class="checkLetter">Probar letra</button>
+    <p class="info">Intentos fallidos: <span class="mistakes"></span>/6</p>
+    <p class="message"></p>
+
+    <script>
+        const words = ["banana","pera","manzana"];
+        let numberRandom = Math.floor((Math.random() * words.length));
+        let selectedWord = words[numberRandom];
+        let wordArray = selectedWord.split(''); //Es el arreglo de las letras
+        let hiddenWord = Array(wordArray.length).fill('_'); //Esta es una copia para cambiar los espacios vacios del nuevo arreglo por -
+        let mistakes = 0;
+
+        const wordDisplay = document.querySelector('.wordDisplay');
+        wordDisplay.textContent = hiddenWord;
+        
+        // const btn = document.querySelector('.checkLetter');
+        // btn.addEventListener(('click'),()=>{
+        //     checkLetter();
+        // })
+
+        const displayWord = () => {
+            document.querySelector('.wordDisplay').innerText = hiddenWord;
+        }
+
+        const checkLetter = () => {
+            const input = document.querySelector('.inputBox');
+            let letter = input.value.toLowerCase();
+            
+            if(wordArray.includes(letter)){
+                wordArray.forEach((char,index) => {
+                    if(char === letter) {
+                        hiddenWord[index] = letter;
+                    }
+                })
+            }else{
+                mistakes++;
+            }
+
+            displayWord();
+            document.querySelector('.mistakes').innerText = mistakes;
+           
+            if(!hiddenWord.includes('_')){
+                console.log('ganaste');
+            }
+        }
+    </script>
+</body>
+</html>
