@@ -75,6 +75,13 @@ You can create a React project using either **Vite** (recommended for better per
 
 Now your React development environment is ready!
 
+To avoid error with proptypes in your project add this command to your eslint config
+
+```sh
+"rules": {
+    "react/prop-types": 0
+  }
+```
 ---
 
 ## Basic Structure of a React Project
