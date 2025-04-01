@@ -162,8 +162,6 @@ function App() {
 export default App;
 ```
 
-## 🔑 Conclusion
+## Conclusion
 
 React Router simplifies the creation of SPAs with dynamic routes and smooth navigation. With the right hooks and components, navigation can be managed intuitively and efficiently.
-
-Now you can build multi-page applications without needing to reload the web! 🚀
