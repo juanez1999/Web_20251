@@ -51,6 +51,10 @@ The general flow when using Redux Toolkit is:
 
 Here’s a summarized step-by-step to add Redux Toolkit to your React project:
 
+@reduxjs/toolkit: Modern Redux logic (store, slices, async thunks, etc.).
+
+react-redux: Redux integration with React (Provider and hooks).
+
 ### 1. Install dependencies, toolkit and react-redux
 ```bash
 npm install @reduxjs/toolkit react-redux
